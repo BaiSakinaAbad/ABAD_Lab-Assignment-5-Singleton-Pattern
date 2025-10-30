@@ -1,20 +1,18 @@
-import java.util.LinkedList;
-import java.util.Queue;
 
 class QueueSystem {
     private static QueueSystem instance;
-    private int currentNumber;
-    private Queue<Integer> waitingLine;    // store queue
-    private boolean isPaused;              // Pause helping uh
+    private int currentNumber;             // Current queue number
+    private String waitingLine;
+    private boolean isPaused;              // Pause helper
 
-    // Private constructor
+    //  constructor
     private QueueSystem() {
         currentNumber = 1;
-        waitingLine = new LinkedList<>();
+        waitingLine = "";
         isPaused = false;
     }
 
-    //single instance Singleton
+    // ingle instance
     public static QueueSystem getInstance() {
         if (instance == null) {
             instance = new QueueSystem();
@@ -22,33 +20,29 @@ class QueueSystem {
         return instance;
     }
 
+
     public synchronized int requestQueueNum(int deskId) {
         if (isPaused) {
             System.out.println("Help desk " + deskId + ": Cannot issue, queue is paused.");
             return -1;
         }
+
         int number = currentNumber++;
-        waitingLine.add(number);
         System.out.printf("Help desk %d: Issued number %02d%n", deskId, number);
+        waitingLine += String.format("%02d ", number);
         return number;
     }
 
+
     public synchronized void getQueueNum() {
         System.out.print("\nqueue waiting line: ");
-        if (waitingLine.isEmpty()) {
-            System.out.println();
-        } else {
-            for (int num : waitingLine) {
-                System.out.print(String.format("%02d ", num));
-            }
-            System.out.println("\n");
-        }
+        System.out.println(waitingLine + "\n");
     }
 
 
     public synchronized void resetQueue(int deskId) {
         System.out.printf("Help desk %d request resetQueue%n%n", deskId);
-        waitingLine.clear();
+        waitingLine = "";
         currentNumber = 1;
         getQueueNum();
     }
@@ -56,7 +50,7 @@ class QueueSystem {
     public synchronized void pauseQueue(int deskId) {
         isPaused = true;
         System.out.printf("Help desk %d request pauseQueue%n", deskId);
-        System.out.println("Pausing the queue for reorganization....");
+        System.out.println("Pausing the queue for reorganization....\n");
     }
 
 }
