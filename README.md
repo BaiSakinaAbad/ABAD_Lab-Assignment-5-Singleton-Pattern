@@ -14,4 +14,5 @@ while the reset option offers control and adjustment in exceptional circumstance
 This approach aims to maintain an organized queuing process for individuals visiting 
 the office and provides the flexibility to handle queue adjustments as needed.
 
-[UML will be attached later]
+### SINGLETON UML DIAGRAM
+![SINGLETON UML DIAGRAM](UML SINGLETON.png)
