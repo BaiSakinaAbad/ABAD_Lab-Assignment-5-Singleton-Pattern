@@ -15,5 +15,5 @@ This approach aims to maintain an organized queuing process for individuals visi
 the office and provides the flexibility to handle queue adjustments as needed.
 
 ### SINGLETON UML DIAGRAM
-`See the image ifin the repository if not loading properly`
+`See the image in the repository if not loading properly`
 ![SINGLETON UML DIAGRAM](UMLSINGLETON.png)
