@@ -16,4 +16,4 @@ the office and provides the flexibility to handle queue adjustments as needed.
 
 ### SINGLETON UML DIAGRAM
 `See the image ifin the repository if not loading properly`
-![SINGLETON UML DIAGRAM](UML SINGLETON.png)
+![SINGLETON UML DIAGRAM](UMLSINGLETON.png)
